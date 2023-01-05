@@ -22,8 +22,8 @@ public class Controller {
         // Capitalize letter after .
         for (int i = 0; i < line.length(); i++) {
             if (line.charAt(i) == '.' && i != line.length() - 1) {
-                line = line.substring(0, i + 1) 
-                        + " " + Character.toUpperCase(line.charAt(i + 2)) 
+                line = line.substring(0, i + 1)
+                        + " " + Character.toUpperCase(line.charAt(i + 2))
                         + line.substring(i + 3);
             }
         }
@@ -31,6 +31,23 @@ public class Controller {
         // Add . to last of sentence
         if (line.charAt(line.length() - 1) != '.') {
             line = line.substring(0, line.length()) + ".";
+        }
+
+        // Refract " "
+        int found = 0;
+        for (int i = 0; i < line.length(); i++) {
+            // First "
+            if (line.charAt(i) == '"') {
+                if (found % 2 == 0) {
+                    line = line.substring(0, i + 1)
+                            + line.substring(i + 2);
+                    found++;
+                } else {
+                    line = line.substring(0, i - 1)
+                            + line.substring(i);
+                    found++;
+                }
+            }
         }
 
         return line;
