@@ -2,7 +2,7 @@ package controller;
 
 public class Controller {
 
-    public String refractor(String line) {
+    public String repair(String line) {
         // Combine multiple whitespaces to 1 whitespace
         line = line.replaceAll(" +", " ");
 
@@ -14,7 +14,7 @@ public class Controller {
         // Capitalize first letter of line
         line = line.substring(0, 1).toUpperCase() + line.substring(1);
 
-        // Refractor all , . and :
+        // Repair all , . and :
         line = line.replaceAll(" +,+ ", ", ");
         line = line.replaceAll(" +[.]+ ", ". ");
         line = line.replaceAll(" +[:]+ ", ": ");
@@ -28,29 +28,27 @@ public class Controller {
             }
         }
 
-        // Add . to last of sentence
-        if (line.charAt(line.length() - 1) != '.') {
-            line = line.substring(0, line.length()) + ".";
-        }
-
-        // Refract " "
+        // Repair all " "
         int found = 0;
         for (int i = 0; i < line.length(); i++) {
             if (line.charAt(i) == '"') {
                 if (found % 2 == 0) {
-                    // First "
+                    // ..."
                     line = line.substring(0, i + 1)
                             + line.substring(i + 2);
-                    found++;
                 } else {
-                    // Second "
+                    // "...
                     line = line.substring(0, i - 1)
                             + line.substring(i);
-                    found++;
                 }
+                found++;
             }
         }
 
+        // Add . to the end of line if not existed
+        if (line.charAt(line.length() - 1) != '.') {
+            line = line.substring(0, line.length()) + ".";
+        }
         return line;
     }
 }
