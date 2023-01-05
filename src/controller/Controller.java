@@ -36,13 +36,14 @@ public class Controller {
         // Refract " "
         int found = 0;
         for (int i = 0; i < line.length(); i++) {
-            // First "
             if (line.charAt(i) == '"') {
                 if (found % 2 == 0) {
+                    // First "
                     line = line.substring(0, i + 1)
                             + line.substring(i + 2);
                     found++;
                 } else {
+                    // Second "
                     line = line.substring(0, i - 1)
                             + line.substring(i);
                     found++;
