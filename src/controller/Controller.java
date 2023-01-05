@@ -6,7 +6,7 @@ public class Controller {
         // Combine multiple whitespaces to 1 whitespace
         line = line.replaceAll(" +", " ");
 
-        // Delete first whitespace
+        // Delete first whitespace if exist
         if (line.charAt(0) == ' ') {
             line = line.replaceFirst(" ", "");
         }
@@ -22,7 +22,9 @@ public class Controller {
         // Capitalize letter after .
         for (int i = 0; i < line.length(); i++) {
             if (line.charAt(i) == '.' && i != line.length() - 1) {
-                line = line.substring(0, i + 1) + " " + Character.toUpperCase(line.charAt(i + 2)) + line.substring(i + 3);
+                line = line.substring(0, i + 1) 
+                        + " " + Character.toUpperCase(line.charAt(i + 2)) 
+                        + line.substring(i + 3);
             }
         }
 
