@@ -1,20 +1,12 @@
 package io;
 
-import handler.TextNormalizer;
 import java.io.BufferedWriter;
-
-import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
 
 public class FileIO {
-
-    // Main Controller
-    private static final TextNormalizer controller = new TextNormalizer();
-    
     // Read data from file
     public String readFile(final String IN) {
         String data = "";
