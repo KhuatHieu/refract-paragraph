@@ -62,11 +62,11 @@ public class TextNormalizer {
                 line = line + part[i].trim() + " \"";
             } else {
                 // "...
-                line = line + part[i].trim() + "\"";
+                line = line + part[i].trim() + "\" ";
             }
         }
 
-        line = line + part[part.length - 1];
+        line = line + part[part.length - 1].trim();
         return line;
     }
 
@@ -83,7 +83,7 @@ public class TextNormalizer {
         line = fixALlWhitespace(line);
         line = fixALlSigns(line);
 
-        return line;
+        return line.trim();
     }
 
     public String splitAndRepair(String data) {
