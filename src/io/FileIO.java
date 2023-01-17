@@ -35,6 +35,8 @@ public class FileIO {
             // Init main BufferedReader for this program
             BufferedWriter bw = new BufferedWriter(new FileWriter(OUT));
 
+            System.out.println(fixedData);
+            
             String[] fixedDataLine = fixedData.split("\n");
             for (String line : fixedDataLine) {
                 bw.write(line);
